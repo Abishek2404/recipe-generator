@@ -174,9 +174,12 @@ Suggest 3 different recipes that can be made. Return ONLY valid JSON array (no m
   }
 };
 
+const connectDB = require("../config/db");
+
 // ── POST /api/recipes/save ───────────────────────────────────
 const saveRecipe = async (req, res) => {
   try {
+    await connectDB();
     const recipe = new Recipe(req.body);
     const saved = await recipe.save();
     res.status(201).json(saved);
