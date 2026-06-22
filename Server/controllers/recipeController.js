@@ -14,7 +14,7 @@ const analyzeImage = async (req, res) => {
 
     // STEP B: Call Groq Vision (LLaMA 4 Scout)
     const response = await groq.chat.completions.create({
-      model: "llama-3.2-11b-vision-preview",
+      model: "meta-llama/llama-4-scout-17b-16e-instruct",
       messages: [
         {
           role: "user",
@@ -56,8 +56,8 @@ const analyzeImage = async (req, res) => {
 
     res.json({ ingredients, rawResponse: text });
   } catch (error) {
-    console.error("Image analysis error:", error);
-    res.status(500).json({ error: "Failed to analyze image" });
+    console.error("Image analysis error details:", error.response ? error.response.data : error);
+    res.status(500).json({ error: error.message || "Failed to analyze image" });
   }
 };
 
