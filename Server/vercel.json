@@ -11,10 +11,5 @@
       "src": "/(.*)",
       "dest": "index.js"
     }
-  ],
-  "env": {
-    "MONGODB_URI": "@mongodb_uri",
-    "GROQ_API_KEY": "@groq_api_key",
-    "PORT": "3000"
-  }
+  ]
 }
