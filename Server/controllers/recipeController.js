@@ -182,7 +182,7 @@ const saveRecipe = async (req, res) => {
     res.status(201).json(saved);
   } catch (error) {
     console.error("Save recipe error:", error);
-    res.status(500).json({ error: "Failed to save recipe" });
+    res.status(500).json({ error: error.message || "Failed to save recipe" });
   }
 };
 

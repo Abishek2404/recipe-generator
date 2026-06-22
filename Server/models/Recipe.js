@@ -32,15 +32,10 @@ const recipeSchema = new mongoose.Schema(
     dietaryTags: [
       {
         type: String,
-        enum: [
-          "vegan", "vegetarian", "keto", "gluten-free",
-          "dairy-free", "low-carb", "high-protein", "paleo",
-        ],
       },
     ],
     difficulty: {
       type: String,
-      enum: ["Easy", "Medium", "Hard"],
       default: "Medium",
     },
     imageUrl:            { type: String },
