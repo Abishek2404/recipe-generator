@@ -9,8 +9,8 @@ function RecipeCard({ recipe, isSaved = false }) {
     try {
       await saveRecipe(recipe);
       alert("Recipe saved successfully!");
-    } catch {
-      alert("Failed to save recipe");
+    } catch (err) {
+      alert(`Failed to save recipe: ${err.message}`);
     }
   };
 
