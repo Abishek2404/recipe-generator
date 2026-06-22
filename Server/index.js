@@ -21,6 +21,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/recipes", recipeRoutes);
 
 // ── Health Check ──────────────────────────────────────────────
+app.get("/", (req, res) => {
+  res.send("AI Food Recipe Backend is running!");
+});
+
 app.get("/api/health", (req, res) => {
   res.json({ status: "Server is running", timestamp: new Date() });
 });
